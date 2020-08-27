@@ -18,15 +18,13 @@ This guide is written to help developers get up and running quickly with the Khr
 - [Additional Resources](./chapters/additional_resources.md)
 
 ## The OpenCL SDK
-
-Content here
+Content in preparation
 
 ## Using OpenCL
-
-Content here
+Content in preparation
 
 ## OpenCL Extensions
-Content here
+Content in preparation
 
 ---
 
