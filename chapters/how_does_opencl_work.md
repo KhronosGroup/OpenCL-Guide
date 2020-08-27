@@ -6,7 +6,9 @@ The OpenCL framework contains two APIs. The *Platform Layer API* is run on the *
 
 The second API is the *Runtime API* which enables the application's kernel programs to be compiled for the compute devices on which they are going to run, loaded in parallel onto those processors and executed. Once the kernel programs finish execution the Runtime API is used to gather the results.
 
+<p align="center"
 <img src="../images/how_it_works.jpg" width=500 >
+</p>
 
 **Compiling and Executing OpenCL Kernels**
 
