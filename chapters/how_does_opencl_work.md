@@ -6,7 +6,7 @@ The OpenCL framework contains two APIs. The *Platform Layer API* is run on the *
 
 The second API is the *Runtime API* which enables the application's kernel programs to be compiled for the compute devices on which they are going to run, loaded in parallel onto those processors and executed. Once the kernel programs finish execution the Runtime API is used to gather the results.
 
-<img src="../images/how_it_works.jpg" width=500 align=centre >
+<img src="../images/how_it_works.jpg" width=500 >
 
 **Compiling and Executing OpenCL Kernels**
 
@@ -20,7 +20,7 @@ OpenCL regards a *kernel* program as the basic unit of executable code (similar 
 
 An OpenCL *command queue* is used by the host application to send kernels and data transfer functions to a device for execution. The kernels and functions in a command queue can be performed in-order or out-of-order. A compute device may have multiple command queues.  
 
-<img src="../images/executing_programs.jpg" style="zoom:60%;" />
+<img src="../images/executing_programs.jpg" width=500 >
 
 **Executing OpenCL Programs**
 
