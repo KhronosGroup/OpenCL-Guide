@@ -8,9 +8,13 @@ The OpenCL *Platform Model* describes how OpenCL understands the compute resourc
 
 A *host* is connected to one or more OpenCL *compute devices*. Each compute device is collection of one or more *compute units* where each compute unit is composed of one or more *processing elements*. Processing elements execute code with SIMD (Single Instruction Multiple Data) or SPMD (Single Program Multiple Data) parallelism.
 
-<img src="../images/platform_model.jpg" style="zoom:60%;" />
-
-<center><b>OpenCL Platform Model</b></center>
+<p align="center">
+<br>
+<img src="../images/platform_model.jpg" width=700 >
+<br> <br>
+  <b>OpenCL Platform Model</b>
+<br> <br>
+</p>
 
 For example, a compute device could be a GPU. Compute units would then correspond to the streaming multiprocessors (SMs) inside the GPU, and processing elements correspond to individual streaming processors (SPs) inside each SM. Processors typically group processing elements into compute units for implementation efficiency through sharing instruction dispatch and memory resources, and increasing local inter-processor communication.
 
@@ -22,11 +26,13 @@ OpenCL's *enqueueNDRangeKernel* command enables a single kernel program to be in
 
 As we saw in the Platform Model section above, it is common for processors to group processing elements into compute units for execution efficiency. Therefore, when using the enqueueNDRangeKernel command, the program specifies a *work-group size* that represents groups of individual work-items in an NDRange that can be accommodated on a compute unit. Work-items in the same work-group are able to share local memory, synchronize more easily using work-group barriers, and cooperate more efficiently using work-group functions such as *async_work_group_copy* that are not available between work-items in separate work-groups.
 
-<img src="../images/ndrange.jpg" style="zoom:50%;" />
-
-<center><b>A 2D Image as an Example NDRange</b></center>
-
-
+<p align="center">
+<br>
+<img src="../images/ndrange.jpg" width=600 >
+<br> <br>
+  <b>A 2D Image as an Example NDRange</b>
+<br> <br>
+</p>
 
 ## Memory Model
 
@@ -40,8 +46,12 @@ OpenCL has a hierarchy of memory types:
 
 * Private memory - available to a single processing element
 
-<img src="../images/memory_model.jpg" style="zoom:50%;" />
-
-<center><b>OpenCL Memory Model</b></center>
+<p align="center">
+<br>
+<img src="../images/memory_model.jpg" width=600 >
+<br> <br>
+  <b>OpenCL Memory Model</b>
+<br> <br>
+</p>
 
 OpenCL memory management is explicit. None of the above memories are automatically synchronized and so the application explicitly moves data between memory types as needed.
