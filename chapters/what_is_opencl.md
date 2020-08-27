@@ -6,11 +6,12 @@ OpenCL is widely used throughout the industry. Many silicon vendors ship OpenCL 
 
 To say they support conformant OpenCL, hardware vendors must become OpenCL *Adopters* and submit their conformance test results for review by the OpenCL Working Group at Khronos. You can  view a list of hardware vendors with Conformant OpenCL Implementations on [Khronos' OpenCL Adopter Page](https://www.khronos.org/conformance/adopters/conformant-products/opencl).
 
-
-
-<img src="../images/widely_used.jpg" style="zoom:60%;" />
-
-<center><b>OpenCL is widely deployed and used throughout the industry</b></center>
+<p align="center">
+<img src="../images/widely_used" width=600 >
+<br> <br>
+  <b>OpenCL is widely deployed and used throughout the industry</b>
+<br> <br>
+</p>
 
 By enabling applications to tap into the power of accelerated parallel programming, OpenCL greatly improves the speed and responsiveness of a wide range of applications, engines and libraries - including professional creative tools, scientific and medical software, vision processing, and neural network training and inferencing. 
 
