@@ -10,10 +10,8 @@ The second API is the *Runtime API* which enables the application's kernel progr
 <img src="../images/how_it_works.jpg" width=500 >
 <br> <br>
   <b>Compiling and Executing OpenCL Kernels</b>
-<br>
+<br> <br>
 </p>
-
-
 
 The most commonly used language for programming the kernels that are compiled and executed across the available parallel processors is called *OpenCL C*. OpenCL C is based on C99 and defined as part of the OpenCL specification and can be ingested by all OpenCL drivers. 
 
