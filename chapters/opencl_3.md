@@ -8,9 +8,13 @@ Developers will find OpenCL 3.0 much easier to use is uses a unified specificati
 
 The [source of the OpenCL 3.0 specification](https://github.com/KhronosGroup/OpenCL-Docs) is hosted on the Khronos GitHub for easy access, and the OpenCL Working Group welcomes community bug reports and pull requests to help improve the specification for everyone. 
 
-<img src="../images/ref_guide_3.jpg" style="zoom:40%;" />
-
-<center><b>The OpenCL 3.0 Reference Guide</b></center>
+<p align="center">
+<br>
+<img src="../images/ref_guide_3.jpg" width=500 >
+<br> <br>
+  <b>The OpenCL 3.0 Reference Guide</b>
+<br> <br>
+</p>
 
 The OpenCL Working Group has also constructed a summary of the OpenCL 3.0 into a condensed *Reference Guide* that can be [downloaded as a PDF](https://www.khronos.org/files/opencl30-reference-guide.pdf).
 
