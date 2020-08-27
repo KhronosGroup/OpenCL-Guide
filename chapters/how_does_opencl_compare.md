@@ -6,7 +6,7 @@ Khronos has two high-level standards that focus on ease of programming with effe
 
 <p align="center">
 <br>
-<img src="../how_it_compares.jpg" width=500 >
+<img src="../images/how_it_compares.jpg" width=650 >
 <br> <br>
   <b>How OpenCL Relates to Other Khronos Acceleration Standards</b>
 <br> <br>
