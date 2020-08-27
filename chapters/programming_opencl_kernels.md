@@ -4,19 +4,25 @@ An OpenCL application is split into host code and device kernel code. Host code 
 
 Device kernels that are written in OpenCL C, which is based on C99, can be ingested and compiled by the OpenCL driver during execution of an application using runtime OpenCL API calls. This is called *online* compilation and is supported by all OpenCL drivers. OpenCL C is a subset of ISO C99 with language extensions for parallelism, well-defined numerical accuracy (IEEE 754 rounding with specified max error) and a rich set of built-in functions including cross, dot, sin, cos, pow, log etc.
 
-
-
-<img src="../images/opencl_kernels.jpg" style="zoom:50%;" />
-
-<center><b>Traditional Versus OpenCL Programming Using OpenCL C Kernels</b></center>
+<p align="center">
+<br>
+<img src="../images/opencl_kernels.jpg" width=800 >
+<br> <br>
+  <b>Traditional Versus OpenCL Programming Using OpenCL C Kernels</b>
+<br> <br>
+</p>
 
 The OpenCL specification also enables optional *offline* compilation where the kernel program is compiled into a machine binary format that a particular driver can ingest. OpenCL implementations may use proprietary binary formats - and so offline compilation can be less portable than using online compilation of OpenCL C.
 
 To offset this portability problem, and to enable a richer language and compiler ecosystem, Khronos has defined a cross-vendor, portable intermediate program representation called [SPIR-V](https://www.khronos.org/spir/). An increasing number of OpenCL implementations are supporting ingestion of offline-compiled kernel programs in the SPIR-V format.
 
-<img src="../images/opencl_and_spirv.jpg" style="zoom:60%;" />
-
-<center><b>OpenCL Language Ecosystem Enabled With SPIR-V </b></center>
+<p align="center">
+<br>
+<img src="../images/opencl_and_spirv.jpg" width=800 >
+<br> <br>
+  <b>OpenCL Language Ecosystem Enabled With SPIR-V</b>
+<br> <br>
+</p>
 
 SPIR-V enables independent innovation by the compiler and silicon communities. Compiler front ends that generate SPIR-V kernels that can be ingested and executed by any OpenCL driver that understands the SPIR-V format. For example the  [C++ for OpenCL](https://github.com/KhronosGroup/Khronosdotorg/blob/master/api/opencl/assets/CXX_for_OpenCL.pdf) open source front-end and the SYCL programming can generate SPIR-V code.
 
