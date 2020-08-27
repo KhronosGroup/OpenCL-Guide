@@ -9,7 +9,7 @@ The second API is the *Runtime API* which enables the application's kernel progr
 <p align="center">
 <img src="../images/how_it_works.jpg" width=500 >
 <br>
-<b>Compiling and Executing OpenCL Kernels<b>
+<b>Compiling and Executing OpenCL Kernels
 <br>
 </p>
 
