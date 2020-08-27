@@ -1,7 +1,7 @@
 # OpenCL Guide
 
 <p align="center">
-<img src="../images/opencl_logo.jpg" width=500 >
+<img src="./images/opencl_logo.png" width=700 >
 <br> <br>
 </p>
 
