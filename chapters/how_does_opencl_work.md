@@ -24,7 +24,7 @@ OpenCL regards a *kernel* program as the basic unit of executable code (similar 
 An OpenCL *command queue* is used by the host application to send kernels and data transfer functions to a device for execution. The kernels and functions in a command queue can be performed in-order or out-of-order. A compute device may have multiple command queues.  
 
 <p align="center">
-<img src="../images/executing_programs.jpg" width=500 >
+<img src="../images/executing_programs.jpg" width=600 >
 <br> <br>
   <b>Executing OpenCL Programs</b>
 <br> <br>
