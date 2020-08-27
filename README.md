@@ -1,6 +1,9 @@
 # OpenCL Guide
 
-<img src="./images/opencl_logo.png" style="zoom:75%;" />
+<p align="center">
+<img src="../images/opencl_logo.jpg" width=500 >
+<br> <br>
+</p>
 
 This guide is written to help developers get up and running quickly with the Khronos® Group's OpenCL™ programming framework. It is an introductory read that covers the background and key concepts of OpenCL, but also contains links to more detailed materials that developers can use to explore the capabilities of OpenCL that interest them most.
 
