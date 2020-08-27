@@ -8,7 +8,7 @@ To say they support conformant OpenCL, hardware vendors must become OpenCL *Adop
 
 <p align="center">
 <br>
-<img src="../images/widely_used.jpg" width=700 >
+<img src="../images/widely_used.jpg" width=800 >
 <br> <br>
   <b>OpenCL is widely deployed and used throughout the industry</b>
 <br> <br>
