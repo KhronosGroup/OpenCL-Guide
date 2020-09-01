@@ -1,6 +1,6 @@
 # C++ for OpenCL
 
-The OpenCL working group has transitioned from the original OpenCL C++ kernel language first defined in OpenCL 2.0 to the community developed  [C++ for OpenCL](https://github.com/KhronosGroup/Khronosdotorg/blob/master/api/opencl/assets/CXX_for_OpenCL.pdf) open source front end compiler that provides improved features and compatibility with OpenCL C.
+The OpenCL working group has transitioned from the original OpenCL C++ kernel language first defined in OpenCL 2.1 to the community developed  [C++ for OpenCL](https://github.com/KhronosGroup/Khronosdotorg/blob/master/api/opencl/assets/CXX_for_OpenCL.pdf) open source front end compiler that provides improved features and compatibility with OpenCL C.
 
 C++ for OpenCL is supported by [Clang](https://clang.llvm.org/docs/UsersManual.html#c-for-opencl) and uses the [LLVM](https://llvm.org/) compiler infrastructure. Its implementation in Clang can be tracked via the [OpenCL Support Page](https://clang.llvm.org/docs/OpenCLSupport.html). It enables developers to use most C++17 features in OpenCL kernels and generates code, through offline compilation, in the SPIR-V intermediate representation that is ingested by an increasing number of OpenCL implementations.
 

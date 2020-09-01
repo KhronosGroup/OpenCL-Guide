@@ -4,7 +4,7 @@ In September 2020, the Khronos OpenCL working group released the OpenCL 3.0 Fina
 
 OpenCL 3.0 officially removed the OpenCL C++  language from the specification, and recommends the [C++ for OpenCL](https://github.com/KhronosGroup/Khronosdotorg/blob/master/api/opencl/assets/CXX_for_OpenCL.pdf) front end compiler for those developers that wish to use C++17 for writing kernel programs.
 
-Developers will find OpenCL 3.0 much easier to use is uses a unified specification that describes all versions of OpenCL in one place rather than having a separate specification per version, making it much easier for  developers to navigate as well as making it much easier to consistently apply specification fixes and clarifications. The unified OpenCL 3.0 specification also describes the rationale behind the specification's evolution.
+Developers will find OpenCL 3.0 much easier to use as it uses a unified specification that describes all versions of OpenCL in one place rather than having a separate specification per version, making it much easier for  developers to navigate as well as making it much easier to consistently apply specification fixes and clarifications. The unified OpenCL 3.0 specification also describes the rationale behind the specification's evolution.
 
 The [source of the OpenCL 3.0 specification](https://github.com/KhronosGroup/OpenCL-Docs) is hosted on the Khronos GitHub for easy access, and the OpenCL Working Group welcomes community bug reports and pull requests to help improve the specification for everyone. 
 

@@ -24,7 +24,7 @@ It is possible to use the OpenCL *enqueueTask* command to send a single-threaded
 
 OpenCL's *enqueueNDRangeKernel* command enables a single kernel program to be initiated to operate in parallel across an N-dimensional data structure. Using a two-dimensional image as a example, the size of the image would be the *NDRange*, and each pixel is called a *work-item* that a copy of kernel running on a single processing element will operate on.
 
-As we saw in the Platform Model section above, it is common for processors to group processing elements into compute units for execution efficiency. Therefore, when using the enqueueNDRangeKernel command, the program specifies a *work-group size* that represents groups of individual work-items in an NDRange that can be accommodated on a compute unit. Work-items in the same work-group are able to share local memory, synchronize more easily using work-group barriers, and cooperate more efficiently using work-group functions such as *async_work_group_copy* that are not available between work-items in separate work-groups.
+As we saw in the Platform Model section above, it is common for processors to group processing elements into compute units for execution efficiency. Therefore, when using the *enqueueNDRangeKernel* command, the program specifies a *work-group size* that represents groups of individual work-items in an NDRange that can be accommodated on a compute unit. Work-items in the same work-group are able to share local memory, synchronize more easily using work-group barriers, and cooperate more efficiently using work-group functions such as *async_work_group_copy* that are not available between work-items in separate work-groups.
 
 <p align="center">
 <br>
