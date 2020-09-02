@@ -1,6 +1,6 @@
 # How Does OpenCL Work?
 
-OpenCL is a programming and runtime and framework that enables a programmer to create small programs, called *kernel programs (or kernels)*, that can be compiled and executed, in parallel, across any processors in a system. The processors can be any mix of different types, including CPUs, GPUs, DSPs, FPGAs or Tensor Processors - which is why OpenCL is often called a solution for *heterogeneous* parallel programming.
+OpenCL is a programming framework and runtime that enables a programmer to create small programs, called *kernel programs (or kernels)*, that can be compiled and executed, in parallel, across any processors in a system. The processors can be any mix of different types, including CPUs, GPUs, DSPs, FPGAs or Tensor Processors - which is why OpenCL is often called a solution for *heterogeneous* parallel programming.
 
 The OpenCL framework contains two APIs. The *Platform Layer API* is run on the *host CPU* and is used first to enable a program to discover what parallel processors or *compute devices* are available in a system. By querying for what compute devices are available an application can run portably across diverse systems - adapting to different combinations of accelerator hardware. Once the compute devices are discovered, the Platform API enables the application to select and initialize the devices it wants to use.
 
@@ -42,8 +42,8 @@ The sequence for executing an OpenCL program is:
 
 5. Create memory objects accessible on the host and/or the device
 
-6. Copy memory data to the device as needed
+6. *Enqueue* copies of memory data to the device as needed
 
 7. *Enqueue* kernels into the command queue for execution
 
-8. Copy results from the device to the host
+8. *Enqueue* copies of results from the device to the host
