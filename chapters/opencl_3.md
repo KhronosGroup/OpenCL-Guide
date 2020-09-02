@@ -1,6 +1,6 @@
 # OpenCL 3.0
 
-In September 2020, the Khronos OpenCL working group released the OpenCL 3.0 Final specification, and conformant versions began to ship. OpenCL 3.0 makes the OpenCL ecosystem much more flexible by enabling vendors to focus their resources on functionality that their customers need. This is achieved by slicing all functionality beyond OpenCL 1.2 into optional features that can be queried in the API, with macros to indicate whether optional OpenCL C language features are present. This flexibility sets the stage for new extensions that becomes widely useful to be incrementally integrated into new OpenCL core specifications.
+OpenCL 3.0 makes the OpenCL ecosystem much more flexible by enabling vendors to focus their resources on functionality that their customers need. This is achieved by slicing all functionality beyond OpenCL 1.2 into optional features that can be queried in the API, with macros to indicate whether optional OpenCL C language features are present. This flexibility sets the stage for new extensions that becomes widely useful to be incrementally integrated into new OpenCL core specifications.
 
 OpenCL 3.0 officially removed the OpenCL C++  language from the specification, and recommends the [C++ for OpenCL](https://github.com/KhronosGroup/Khronosdotorg/blob/master/api/opencl/assets/CXX_for_OpenCL.pdf) front end compiler for those developers that wish to use C++17 for writing kernel programs.
 

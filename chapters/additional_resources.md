@@ -10,7 +10,7 @@ Khronos-supplied OpenCL resources and other key tools are curated by the OpenCL 
 
 The [OpenCL Community Resources Page](https://www.khronos.org/opencl/community-resources/) is an extensive, crowd-sourced listing of OpenCL open source implementations, development tools, language bindings, libraries and frameworks, educational materials, and OpenCL applications. Anyone in the OpenCL Community is encouraged to submit information about your own OpenCL resources, tools, and projects with a pull request to the GitHub site.
 
-You can interact directly with the OpenCL Working Group on the [Khronos OpenCL Forum](https://community.khronos.org/c/opencl/14) or the [OpenCL channel of the Khronos Developer Slack](https://khronosdevs.slack.com/archives/CDSBQPH2Q).
+You can interact directly with the OpenCL Working Group on the [Khronos OpenCL Forum](https://community.khronos.org/c/opencl/14) or the [OpenCL channel of the Khronos Developer Slack](https://app.slack.com/client/TDMDFS87M/CDSBQPH2Q).
 
 
 
