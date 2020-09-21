@@ -16,7 +16,7 @@ The [source of the OpenCL 3.0 specification](https://github.com/KhronosGroup/Ope
 <br> <br>
 </p>
 
-The OpenCL Working Group has also constructed a summary of the OpenCL 3.0 into a condensed *Reference Guide* that can be [downloaded as a PDF](https://www.khronos.org/files/opencl30-reference-guide.pdf).
+The OpenCL Working Group has also constructed a summary of the OpenCL 3.0 specification into a condensed *Reference Guide* that can be [downloaded as a PDF](https://www.khronos.org/files/opencl30-reference-guide.pdf).
 
 ## Moving Applications to OpenCL 3.0
 
