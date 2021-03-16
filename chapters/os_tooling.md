@@ -58,7 +58,7 @@ llvm-spirv test.bc -o test.spv
 
 __Note:__ converting optimized IR is currently unsupported. Therefore, a stand-alone __spirv-opt__ tool can be used to optimize SPIR-V modules.
 
-(iii) Linking multiple modules can be done on LLVM IR level by passing multiple `.bc` files to __llvm-link__.
+__(iii)__ Linking multiple modules can be done on LLVM IR level by passing multiple `.bc` files to __llvm-link__.
 
 ```
 llvm-link test1.bc test2.bc -o app.bc
@@ -70,7 +70,7 @@ Alternatively, __spirv-link__ can be used:
 spirv-link -o app.spv test1.spv test2.spv
 ```
 
-(iv) Once the SPIR-V binary is produced, it can be loaded in OpenCL applications using the `clCreateProgramWithIL` API call.
+__(iv)__ Once the SPIR-V binary is produced, it can be loaded in OpenCL applications using the `clCreateProgramWithIL` API call.
 
 ##### Compile for Vulkan runtime
 
