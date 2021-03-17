@@ -33,13 +33,14 @@ If you want to try the above compilation flow for yourself, after installing the
 __(i)__ Compiling OpenCL C/C++ for OpenCL file into intermediate LLVM IR (for 32 bit targets) formats:
 
 ```
-clang -cl-std=cl1.2 -c -target spir -O0 -emit-llvm -o test.bc test.cl
+clang -c -target spir -O0 -emit-llvm -o test.bc test.cl
 ```
+Using `-cl-std` changes the language version compiled for.
 
-To compile C++ for OpenCL source pass `-cl-std=clc++` or use the following file extension `.clcpp`.
+To compile C++ for OpenCL source pass `-cl-std=CLC++` or use the following file extension `.clcpp`.
 
 ```
-clang -cl-std=clc++ -c -target spir -O0 -emit-llvm -o test.bc test.cl
+clang -cl-std=CLC++ -c -target spir -O0 -emit-llvm -o test.bc test.cl
 clang -c -target spir -O0 -emit-llvm -o test.bc test.clcpp
 ```
 If debugging support is needed  can be obtained `-g` flag can be passed in clang invocation:
