@@ -29,3 +29,11 @@ SPIR-V enables independent innovation by the compiler and silicon communities. C
 SPIR-V also enables OpenCL kernels written in OpenCL C and C++ for OpenCL to be executed by runtimes other than OpenCL, providing more deployment flexibility for developers that have invested in OpenCL kernel programming. For example, the Google [clspv](https://github.com/google/clspv) open source compiler can generate Vulkan SPIR-V shaders from OpenCL C kernel source code, Microsoft is working on a compiler chain that can ingest [OpenCL SPIR_V kernels into DX12](https://github.com/microsoft/OpenCLOn12), and there is early work on using SPIR-V tools such as SPIRV-Cross to bring OpenCL SPIR-V kernels into Metal for execution on Apple platforms.
 
 This diverse OpenCL language ecosystem in turn gives a rich choice to domain specific languages, such as the Halide image processing framework, that can compile to OpenCL C kernels either using source-to-source translations or generating SPIR-V.
+
+<p align="center">
+<br>
+<img src="../images/online_vs_offline_comp.jpg">
+<br> <br>
+  <b>Online vs Offline Compilation of Kernels</b>
+<br> <br>
+</p>
