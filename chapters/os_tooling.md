@@ -1,12 +1,12 @@
 # Offline Compilation of OpenCL Kernel Sources
 
-Aside from online compilation during the application execution, OpenCL kernel sources can be compiled offline into binaries that can be loaded into the drivers using special API (e.g. `clCreateProgramWithBinary` or `clCreateProgramWithIL`).
+Aside from online compilation during application execution, OpenCL kernel sources can be compiled offline into binaries that can be loaded into the drivers using special API calls (e.g. `clCreateProgramWithBinary` or `clCreateProgramWithIL`).
 
-This section described available open source tools for offline compilation of OpenCL kernels.
+This section describes available open source tools for offline compilation of OpenCL kernels.
 
 ## Open Source Tools
 
-* [clang](https://clang.llvm.org/) is a compiler front-end for the C/C++ family of languages including OpenCL C and C++ for OpenCL that can compile into an executable binary (e.g. AMDGPU), or a portable binary (e.g. SPIR). It is part of [the LLVM compiler infrastructure project](https://llvm.org/), and there is information regarding [OpenCL kernel language support and standard headers](https://clang.llvm.org/docs/UsersManual.html#opencl-features).
+* [clang](https://clang.llvm.org/) is a compiler front-end for the C/C++ family of languages including OpenCL C and C++ for OpenCL that can produce executable binaries (e.g. AMDGPU), or portable binaries (e.g. SPIR). It is part of [the LLVM compiler infrastructure project](https://llvm.org/), and there is information regarding [OpenCL kernel language support and standard headers](https://clang.llvm.org/docs/UsersManual.html#opencl-features).
 * [libclc](https://libclc.llvm.org/) is a generic and portable implementation of OpenCL builtin function libraries for OpenCL 1.1 - and some functions from later versions of OpenCL can be found there too.
 * [SPIRV-LLVM Translator](https://github.com/KhronosGroup/SPIRV-LLVM-Translator) is a library and __llvm-spirv__ tool for translating between LLVM IR and SPIR-V. 
 * [clspv](https://github.com/google/clspv) compiler and [clvk](https://github.com/kpet/clvk) runtime layer enable OpenCL applications to be executed with Vulkan drivers.
@@ -43,7 +43,7 @@ To compile C++ for OpenCL source pass `-cl-std=CLC++` or use the following file 
 clang -cl-std=CLC++ -c -target spir -O0 -emit-llvm -o test.bc test.cl
 clang -c -target spir -O0 -emit-llvm -o test.bc test.clcpp
 ```
-If debugging support is needed  can be obtained `-g` flag can be passed in clang invocation:
+If debugging support is needed then the `-g` flag can be used in the clang invocation:
 
 ```
 clang -c test.cl -target spir -o test.bc -g
@@ -57,7 +57,7 @@ __(ii)__ Converting LLVM IR into SPIR-V.
 llvm-spirv test.bc -o test.spv
 ```
 
-__Note:__ converting optimized IR is currently unsupported. Therefore, a stand-alone __spirv-opt__ tool can be used to optimize SPIR-V modules.
+__Note:__ Converting optimized IR is currently unsupported. However, the stand-alone __spirv-opt__ tool can be used to optimize SPIR-V modules once they have been created.
 
 __(iii)__ Linking multiple modules can be done on LLVM IR level by passing multiple `.bc` files to __llvm-link__.
 
@@ -81,5 +81,4 @@ Compiling OpenCL sources directly to SPIR-V binary format:
 clspv test.cl -o test.spv
 ```
 
-The SPIR-V binary files can be further optimized or linked using __spirv-opt__ and __spirv-link__ respectively before loading into Vulkan runtime (TODO: API call).
-
+The SPIR-V binary files can be further optimized or linked using __spirv-opt__ and __spirv-link__ respectively before loading into the Vulkan runtime using the `vkCreateShaderModule` API call.

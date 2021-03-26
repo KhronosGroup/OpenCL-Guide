@@ -14,8 +14,8 @@ This guide is written to help developers get up and running quickly with the Khr
 - [Programming OpenCL Kernels](./chapters/programming_opencl_kernels.md)
 - [OpenCL Programming Model](./chapters/opencl_programming_model.md)
 - [C++ for OpenCL](./chapters/cpp_for_opencl.md)
-- [opencl 3.0](./chapters/opencl_3.md)
-- [Tools for Offline Compilation of OpenCL Kernels](./chapters/0s_tooling.md)
+- [OpenCL 3.0](./chapters/opencl_3.md)
+- [Tools for Offline Compilation of OpenCL Kernels](./chapters/os_tooling.md)
 - [Additional Resources](./chapters/additional_resources.md)
 
 ## The OpenCL SDK
