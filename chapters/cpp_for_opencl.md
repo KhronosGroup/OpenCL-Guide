@@ -18,9 +18,9 @@ You can check out C++ for OpenCL in [Compiler Explorer](https://godbolt.org/z/NG
 
 ## Documentation
 
-The language documentation can be found in releases of [OpenCL-Docs](https://github.com/KhronosGroup/OpenCL-Docs/releases) with [the first official](https://github.com/KhronosGroup/OpenCL-Docs/releases/tag/cxxforopencl-v1.0-r1) of version 1.0 (see also [the latest WIP version](OpenCL](https://github.com/KhronosGroup/Khronosdotorg/blob/master/api/opencl/assets/CXX_for_OpenCL.pdf).
+The language documentation can be found in releases of [OpenCL-Docs](https://github.com/KhronosGroup/OpenCL-Docs/releases) with [the first official](https://github.com/KhronosGroup/OpenCL-Docs/releases/tag/cxxforopencl-v1.0-r1) version 1.0 (see also [the latest WIP version](OpenCL](https://github.com/KhronosGroup/Khronosdotorg/blob/master/api/opencl/assets/CXX_for_OpenCL.pdf).
 
-This documentation provides details about the language semantic as well as differences to OpenCL C and C++.
+This documentation provides details about the language semantics as well as differences to OpenCL C and C++.
 
 ## Example
 
@@ -31,7 +31,7 @@ The following code is a snippet illustrating how to implement kernels with compl
 // kernel code with complex number arithmetic using various
 // C++ features.
 
-// Define a class - Complex, that can perform complex number
+// Define a class Complex, that can perform complex number
 // computations with various precision when different
 // types for T are used - double, float, half...
 template<typename T>
@@ -41,13 +41,13 @@ T m_im; // Imaginary component.
 
 public:
 complex_t(T re, T im): m_re{re}, m_im{im} {};
-complex_t operator*(complex_t &other)	
+complex_t operator*(const complex_t &other) const
 {
   return {m_re * other.m_re - m_im * other.m_im,
            m_re * other.m_im + m_im * other.m_re};
 }
-int get_re() { return m_re; }
-int get_im() { return m_im; }
+int get_re() const { return m_re; }
+int get_im() const { return m_im; }
 };
 
 // A helper function to compute multiplication over
@@ -85,25 +85,25 @@ kernel void compute_hp(global half *in, global half *out) {
 
 ## Developing kernels with C++ for OpenCL
 
-C++ for OpenCL sources can be developed and compiled just like OpenCL C sources. However due to the increased growth of application complexity especially those that benefit most from rich variety of C++ features and high-level abstractions, it is expected that the majority of C++ for OpenCL kernels will be compiled offline. The offline compilation also provides ability to take advantage of various newest features in open source tools and frameworks without waiting for their integration into the vendor toolchains. 
+C++ for OpenCL sources can be developed and compiled just like OpenCL C sources. However due to the increased growth of application complexity especially those that benefit most from a rich variety of C++ features and high-level abstractions, it is expected that the majority of C++ for OpenCL kernels will be compiled offline. Offline compilation also provides the ability to take advantage of various newest features in open source tools and frameworks without waiting for their integration into the vendor toolchains. 
 
 ### Offline compilation
 
-Clang provides support for C++ for OpenCL using regular interface as for any version of OpenCL C. More details can be found in its [UsersManual](https://clang.llvm.org/docs/UsersManual.html#cxx-for-opencl). In the majority of cases the generated binary can be used in the existing drivers. C++ for OpenCL version 1.0 is developed against OpenCL 2.0. Depending on the features used drivers from other versions (e.g. OpenCL 3.0) might be able to load the binaries produced with C++ for OpenCL v1.0 too. Use of global objects and static function objects with non-trivial constructors is not supported in a portable way, refer to [the following clang documentation](https://clang.llvm.org/docs/UsersManual.html#constructing-and-destroying-global-objects) for details.
+Clang provides support for C++ for OpenCL using the same interface as for any version of OpenCL C. More details can be found in its [UsersManual](https://clang.llvm.org/docs/UsersManual.html#cxx-for-opencl). In the majority of cases the generated binary can be used in existing drivers. C++ for OpenCL version 1.0 is developed against OpenCL 2.0. Depending on the features used, drivers from other versions (e.g. OpenCL 3.0) might be able to load the binaries produced with C++ for OpenCL v1.0 too. Use of global objects and static function objects with non-trivial constructors is not supported in a portable way, refer to [the following clang documentation](https://clang.llvm.org/docs/UsersManual.html#constructing-and-destroying-global-objects) for details.
 
-Clang only supports limited number of vendors and therefore to allow executing the binaries from C++ for OpenCL on more devices it is recommended to generate portable executable formants. C++ for OpenCL kernel sources can be compiled into SPIR-V using [open source tools](os_tooling.md) and then loaded into drivers supporting SPIR-V. C++ for OpenCL 1.0 generates SPIR-V 1.0 plus SPIR-V 1.2 where necessary.
+Clang only supports a limited number of vendors and therefore to allow executing the binaries from C++ for OpenCL on more devices it is recommended to generate portable executable formats. C++ for OpenCL kernel sources can be compiled into SPIR-V using [open source tools](os_tooling.md) and then loaded into drivers supporting SPIR-V. C++ for OpenCL 1.0 generates SPIR-V 1.0 plus SPIR-V 1.2 where necessary.
 
 The bugs and implementation of new features in clang can be tracked via the [OpenCL Support Page](https://clang.llvm.org/docs/OpenCLSupport.html#c-for-opencl-implementation-status).
 
 ### Online compilation
 
-Kernel written in C++ for OpenCL can be compiled online on devices that support the following extension [cl_ext_cxx_for_opencl](https://www.khronos.org/registry/OpenCL/extensions/ext/cl_ext_cxx_for_opencl.html).
+Kernels written in C++ for OpenCL can be compiled online on devices that support the [cl_ext_cxx_for_opencl](https://www.khronos.org/registry/OpenCL/extensions/ext/cl_ext_cxx_for_opencl.html) extension.
 
 ## Libraries
 
 All OpenCL C builtin library functions are available with C++ for OpenCL.
 
-There is work ongoing to provide C++ based libraries extended from C++ implementation: check out [experimental libraries in clang](https://clang.llvm.org/docs/OpenCLSupport.html#c-libraries-for-opencl) and [libclcxx](https://github.com/KhronosGroup/libclcxx) project for more details.
+There is work ongoing to provide C++ based libraries extended from the C++ implementation: see the [experimental libraries in clang](https://clang.llvm.org/docs/OpenCLSupport.html#c-libraries-for-opencl) and [libclcxx](https://github.com/KhronosGroup/libclcxx) projects for more details.
 
 ## Extensions
 
@@ -111,4 +111,4 @@ All extensions from OpenCL C are available with C++ for OpenCL.
 
 ## Contributions
 
-C++ for OpenCL is a community driven open languages and contributions are welcome from anyone interested to improve the language compilation in [clang](https://clang.llvm.org/docs/OpenCLSupport.html) or documentation of the language hosted in [OpenCL-Docs](https://github.com/KhronosGroup/OpenCL-Docs). Refer to `git log` or `git blame` to find relevant contributors to contact or loop in for reviews.
+C++ for OpenCL is a community driven open language and contributions are welcome from anyone interested to improve the language compilation in [clang](https://clang.llvm.org/docs/OpenCLSupport.html) or documentation of the language hosted in [OpenCL-Docs](https://github.com/KhronosGroup/OpenCL-Docs). Refer to `git log` or `git blame` to find relevant contributors to contact or loop in for reviews.
