@@ -16,8 +16,7 @@ The OpenCL specification also enables optional *offline* compilation where the k
 
 To offset this portability problem, and to enable a richer language and compiler ecosystem, Khronos has defined a cross-vendor, portable intermediate program representation called [SPIR-V](https://www.khronos.org/spir/). An increasing number of OpenCL implementations are supporting ingestion of offline-compiled kernel programs in the SPIR-V format.
 
-SPIR-V enables independent innovation by the compiler and silicon communities. Compiler front ends that generate SPIR-V kernels that can be ingested and executed by any OpenCL driver that understands the SPIR-V format. For example the  [C++ for OpenCL](cpp_for_opencl.md) open source front-end and compilers for SYCL can generate SPIR-V code.
-
+SPIR-V enables independent innovation by the compiler and silicon communities. Compiler front ends that generate SPIR-V kernels that can be ingested and executed by any OpenCL driver that understands the SPIR-V format. For example the  [C++ for OpenCL](cpp_for_opencl.md) open source front-end and compilers for [SYCL](https://www.khronos.org/sycl/) can generate SPIR-V code. Both languages bring C++ functionality to the OpenCL programming. While C++ for OpenCL allows using C++ features in the traditional OpenCL kernel code, SYCL provides single-source C++ solution both for host and kernel code.
 
 <p align="center">
 <br>
