@@ -1,8 +1,8 @@
 # C++ for OpenCL
 
-The OpenCL working group has transitioned from the original OpenCL C++ kernel language first defined in OpenCL 2.1 to the community developed [C++ for OpenCL](https://www.iwocl.org/wp-content/uploads/iwocl-syclcon-2020-stulova-13-slides.pdf) kernel language that provides improved features and compatibility with OpenCL C.
+The OpenCL working group has transitioned from the original OpenCL C++ kernel language first defined in OpenCL 2.2 to the community developed [C++ for OpenCL](https://www.iwocl.org/wp-content/uploads/iwocl-syclcon-2020-stulova-13-slides.pdf) kernel language that provides improved features and compatibility with OpenCL C.
 
-C++ for OpenCL enables developers to use most C++17 features in kernel code while keeping familiar OpenCL constructs, syntax, and semantics from OpenCL C. This facilitates a smooth transition to new C++ features in existing OpenCL applications and does not require changing familiar development flows or tools. The main design goal of C++ for OpenCL is to reapply OpenCL-specific concepts to C++ in the same way as OpenCL C does. Aside from minor exceptions OpenCL C is a valid subset of C++ for OpenCL. Overall, the kernel code written in C++ for OpenCL looks just like code written in OpenCL C with some extra C++ features available for convenience. 
+C++ for OpenCL enables developers to use most C++ features in kernel code while keeping familiar OpenCL constructs, syntax, and semantics from OpenCL C. This facilitates a smooth transition to new C++ features in existing OpenCL applications and does not require changing familiar development flows or tools. The main design goal of C++ for OpenCL is to reapply OpenCL-specific concepts to C++ in the same way as OpenCL C applies them to C. Aside from minor exceptions OpenCL C is a valid subset of C++ for OpenCL. Overall, the kernel code written in C++ for OpenCL looks just like code written in OpenCL C with some extra C++ features available for convenience. C++ for OpenCL support features from C++17.
 
 <p align="center">
 <br>
@@ -18,7 +18,7 @@ You can check out C++ for OpenCL in [Compiler Explorer](https://godbolt.org/z/NG
 
 ## Documentation
 
-The language documentation can be found in releases of [OpenCL-Docs](https://github.com/KhronosGroup/OpenCL-Docs/releases) with [the first official](https://github.com/KhronosGroup/OpenCL-Docs/releases/tag/cxxforopencl-v1.0-r1) version 1.0 (see also [the latest WIP version](OpenCL](https://github.com/KhronosGroup/Khronosdotorg/blob/master/api/opencl/assets/CXX_for_OpenCL.pdf).
+The language documentation can be found in releases of [OpenCL-Docs](https://github.com/KhronosGroup/OpenCL-Docs/releases) with [the first official version 1.0](https://github.com/KhronosGroup/OpenCL-Docs/releases/tag/cxxforopencl-v1.0-r1) (see also [the latest WIP version](https://github.com/KhronosGroup/Khronosdotorg/blob/master/api/opencl/assets/CXX_for_OpenCL.pdf).
 
 This documentation provides details about the language semantics as well as differences to OpenCL C and C++.
 
@@ -89,9 +89,16 @@ C++ for OpenCL sources can be developed and compiled just like OpenCL C sources.
 
 ### Offline compilation
 
-Clang provides support for C++ for OpenCL using the same interface as for any version of OpenCL C. More details can be found in its [UsersManual](https://clang.llvm.org/docs/UsersManual.html#cxx-for-opencl). In the majority of cases the generated binary can be used in existing drivers. C++ for OpenCL version 1.0 is developed against OpenCL 2.0. Depending on the features used, drivers from other versions (e.g. OpenCL 3.0) might be able to load the binaries produced with C++ for OpenCL v1.0 too. Use of global objects and static function objects with non-trivial constructors is not supported in a portable way, refer to [the following clang documentation](https://clang.llvm.org/docs/UsersManual.html#constructing-and-destroying-global-objects) for details.
+Clang provides support for C++ for OpenCL using the same interface as for OpenCL C.
 
-Clang only supports a limited number of vendors and therefore to allow executing the binaries from C++ for OpenCL on more devices it is recommended to generate portable executable formats. C++ for OpenCL kernel sources can be compiled into SPIR-V using [open source tools](os_tooling.md) and then loaded into drivers supporting SPIR-V. C++ for OpenCL 1.0 generates SPIR-V 1.0 plus SPIR-V 1.2 where necessary.
+```
+clang -cl-std=CLC++ test.cl
+clang test.clcpp
+```
+
+More details can be found in its [UsersManual](https://clang.llvm.org/docs/UsersManual.html#cxx-for-opencl). In the majority of cases the generated binary can be used in existing drivers. C++ for OpenCL version 1.0 is developed against OpenCL 2.0. Depending on the features used, drivers from other versions (e.g. OpenCL 3.0) might be able to load the binaries produced with C++ for OpenCL v1.0 too. Use of global objects and static function objects with non-trivial constructors is not supported in a portable way, refer to [the following clang documentation](https://clang.llvm.org/docs/UsersManual.html#constructing-and-destroying-global-objects) for details.
+
+Clang only supports a limited number of vendors and therefore to allow executing the binaries from C++ for OpenCL on more devices it is recommended to generate portable executable formats. C++ for OpenCL kernel sources can be compiled into SPIR-V using [open source tools](os_tooling.md) and then loaded into drivers supporting SPIR-V. C++ for OpenCL 1.0 mainly requires SPIR-V 1.0 plus SPIR-V 1.2 for some features.
 
 The bugs and implementation of new features in clang can be tracked via the [OpenCL Support Page](https://clang.llvm.org/docs/OpenCLSupport.html#c-for-opencl-implementation-status).
 
