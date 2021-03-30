@@ -2,7 +2,7 @@
 
 The OpenCL working group has transitioned from the original OpenCL C++ kernel language first defined in OpenCL 2.1 to the community developed [C++ for OpenCL](https://www.iwocl.org/wp-content/uploads/iwocl-syclcon-2020-stulova-13-slides.pdf) kernel language that provides improved features and compatibility with OpenCL C.
 
-C++ for OpenCL enables developers to use most C++17 features in a kernel code while keeping familiar OpenCL constructs, syntax, and sematic from OpenCL C. This facilitates smooth transition to new C++ features in existing OpenCL applications and does not require changing familiar development flow or tools. The main design goal of C++ for OpenCL is to reapply OpenCL-specific concepts to C++ in the same way as OpenCL C does. Aside from minor exceptions OpenCL C is a valid subset of C++ for OpenCL. Overall, the kernel code written in C++ for OpenCL looks just like code written in OpenCL C with some extra C++ features available for convenience. 
+C++ for OpenCL enables developers to use most C++17 features in kernel code while keeping familiar OpenCL constructs, syntax, and semantics from OpenCL C. This facilitates a smooth transition to new C++ features in existing OpenCL applications and does not require changing familiar development flows or tools. The main design goal of C++ for OpenCL is to reapply OpenCL-specific concepts to C++ in the same way as OpenCL C does. Aside from minor exceptions OpenCL C is a valid subset of C++ for OpenCL. Overall, the kernel code written in C++ for OpenCL looks just like code written in OpenCL C with some extra C++ features available for convenience. 
 
 <p align="center">
 <br>
