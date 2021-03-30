@@ -18,7 +18,7 @@ You can check out C++ for OpenCL in [Compiler Explorer](https://godbolt.org/z/NG
 
 ## Documentation
 
-The language documentation can be found in releases of [OpenCL-Docs](https://github.com/KhronosGroup/OpenCL-Docs/releases) with [the first official version 1.0](https://github.com/KhronosGroup/OpenCL-Docs/releases/tag/cxxforopencl-v1.0-r1) (see also [the latest WIP version](https://github.com/KhronosGroup/Khronosdotorg/blob/master/api/opencl/assets/CXX_for_OpenCL.pdf).
+The language documentation can be found in releases of [OpenCL-Docs](https://github.com/KhronosGroup/OpenCL-Docs/releases) with [the first official version 1.0](https://github.com/KhronosGroup/OpenCL-Docs/releases/tag/cxxforopencl-v1.0-r1) (see also [the latest WIP version](https://github.com/KhronosGroup/Khronosdotorg/blob/master/api/opencl/assets/CXX_for_OpenCL.pdf)).
 
 This documentation provides details about the language semantics as well as differences to OpenCL C and C++.
 
