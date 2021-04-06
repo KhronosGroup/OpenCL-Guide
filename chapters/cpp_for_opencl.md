@@ -2,7 +2,7 @@
 
 The OpenCL working group has transitioned from the original OpenCL C++ kernel language first defined in OpenCL 2.2 to the community developed [C++ for OpenCL](https://www.iwocl.org/wp-content/uploads/iwocl-syclcon-2020-stulova-13-slides.pdf) kernel language that provides improved features and compatibility with OpenCL C.
 
-C++ for OpenCL enables developers to use most C++ features in kernel code while keeping familiar OpenCL constructs, syntax, and semantics from OpenCL C. This facilitates a smooth transition to new C++ features in existing OpenCL applications and does not require changing familiar development flows or tools. The main design goal of C++ for OpenCL is to reapply OpenCL-specific concepts to C++ in the same way as OpenCL C applies them to C. Aside from minor exceptions OpenCL C is a valid subset of C++ for OpenCL. Overall, the kernel code written in C++ for OpenCL looks just like code written in OpenCL C with some extra C++ features available for convenience. C++ for OpenCL support features from C++17.
+C++ for OpenCL enables developers to use most C++ features in kernel code while keeping familiar OpenCL constructs, syntax, and semantics from OpenCL C. This facilitates a smooth transition to new C++ features in existing OpenCL applications and does not require changing familiar development flows or tools. The main design goal of C++ for OpenCL is to reapply OpenCL-specific concepts to C++ in the same way as OpenCL C applies them to C. Aside from minor exceptions OpenCL C is a valid subset of C++ for OpenCL. Overall, kernel code written in C++ for OpenCL looks just like code written in OpenCL C with some extra C++ features available for convenience. C++ for OpenCL supports features from C++17.
 
 <p align="center">
 <br>
@@ -24,7 +24,7 @@ This documentation provides details about the language semantics as well as diff
 
 ## Example
 
-The following code is a snippet illustrating how to implement kernels with complex number arithmetic using C++ features.
+The following code snippet illustrates how to implement kernels with complex number arithmetic using C++ features.
 
 ```cpp
 // This example demonstrates a convenient way to implement
@@ -59,10 +59,10 @@ void compute_helper(global T *in, global T *out) {
   // Every work-item uses 4 consecutive items from the input
   // buffer - two for each complex number.
   auto offset = idx * 4;
-  complex_t num1{in[offset], in[offset + 1]};
-  complex_t num2{in[offset + 2], in[offset + 3]};
+  auto num1 = complex_t{in[offset], in[offset + 1]};
+  auto num2 = complex_t{in[offset + 2], in[offset + 3]};
   // Perform complex number multiplication.
-  complex_t res = num1 * num2;
+  auto res = num1 * num2;
   // Every work-item writes 2 consecutive items to the output
   // buffer.
   out[idx * 2] = res.get_re();
