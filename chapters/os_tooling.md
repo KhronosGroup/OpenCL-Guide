@@ -7,7 +7,7 @@ This section describes available open source tools for offline compilation of Op
 ## Open Source Tools
 
 * [clang](https://clang.llvm.org/) is a compiler front-end for the C/C++ family of languages including OpenCL C and C++ for OpenCL that can produce executable binaries (e.g. AMDGPU), or portable binaries (e.g. SPIR). It is part of [the LLVM compiler infrastructure project](https://llvm.org/), and there is information regarding [OpenCL kernel language support and standard headers](https://clang.llvm.org/docs/UsersManual.html#opencl-features).
-* [SPIRV-LLVM Translator](https://github.com/KhronosGroup/SPIRV-LLVM-Translator) provides a library and the __llvm-spirv__ tool for bidirectional translation between SPIR flavor of LLVM IR and SPIR-V. 
+* [SPIRV-LLVM Translator](https://github.com/KhronosGroup/SPIRV-LLVM-Translator) provides a library and the __llvm-spirv__ tool for bidirectional translation between LLVM IR and SPIR-V. 
 * [clspv](https://github.com/google/clspv) compiler and [clvk](https://github.com/kpet/clvk) runtime layer enable OpenCL applications to be executed with Vulkan drivers.
 * [SPIR-V Tools](https://github.com/KhronosGroup/SPIRV-Tools) provide a set of utilities to process SPIR-V binaries including __spirv-opt__ optimizer, __spirv-link__ linker, __spirv-dis__/__spirv-as__ (dis-)assembler, and __spirv-val__ validator.
 
@@ -31,7 +31,7 @@ If you want to try the above compilation flow for yourself, after installing the
 
 ##### Compile for OpenCL runtime
 
-__(i)__ Compiling OpenCL C/C++ for OpenCL file into intermediate LLVM IR (for 32 bit targets) formats:
+__(i)__ Compiling OpenCL C/C++ for OpenCL file into SPIR flavor LLVM IR (for 32 bit targets) formats:
 
 ```
 clang -c -target spir -O0 -emit-llvm -o test.bc test.cl
@@ -58,7 +58,7 @@ __(ii)__ Converting LLVM IR into SPIR-V.
 llvm-spirv test.bc -o test.spv
 ```
 
-__Note:__ Converting optimized IR is currently unsupported. However, the stand-alone __spirv-opt__ tool can be used to optimize SPIR-V modules once they have been created.
+__Note:__ Converting IR produced with optimization levels other than `-O0` is only available as an experimental feature and it is not guaranteed to work. The majority of common functionality is expected to convert even when optimizations are enabled. Developers are encouraged to file a bug report when issues are encountered. When translating modules obtained with optimizations can not be not supported, the stand-alone __spirv-opt__ tool can be used to optimize in SPIR-V format once the conversion is done from LLVM IR produced with optimizations disabled.
 
 __(iii)__ Linking multiple modules can be done on LLVM IR level by passing multiple `.bc` files to __llvm-link__.
 
