@@ -7,8 +7,7 @@ This section describes available open source tools for offline compilation of Op
 ## Open Source Tools
 
 * [clang](https://clang.llvm.org/) is a compiler front-end for the C/C++ family of languages including OpenCL C and C++ for OpenCL that can produce executable binaries (e.g. AMDGPU), or portable binaries (e.g. SPIR). It is part of [the LLVM compiler infrastructure project](https://llvm.org/), and there is information regarding [OpenCL kernel language support and standard headers](https://clang.llvm.org/docs/UsersManual.html#opencl-features).
-* [libclc](https://libclc.llvm.org/) is a generic and portable implementation of OpenCL builtin function libraries for OpenCL 1.1 - and some functions from later versions of OpenCL can be found there too.
-* [SPIRV-LLVM Translator](https://github.com/KhronosGroup/SPIRV-LLVM-Translator) provides a library and the __llvm-spirv__ tool for bidirectional translation between LLVM IR and SPIR-V. 
+* [SPIRV-LLVM Translator](https://github.com/KhronosGroup/SPIRV-LLVM-Translator) provides a library and the __llvm-spirv__ tool for bidirectional translation between SPIR flavor of LLVM IR and SPIR-V. 
 * [clspv](https://github.com/google/clspv) compiler and [clvk](https://github.com/kpet/clvk) runtime layer enable OpenCL applications to be executed with Vulkan drivers.
 * [SPIR-V Tools](https://github.com/KhronosGroup/SPIRV-Tools) provide a set of utilities to process SPIR-V binaries including __spirv-opt__ optimizer, __spirv-link__ linker, __spirv-dis__/__spirv-as__ (dis-)assembler, and __spirv-val__ validator.
 
@@ -23,6 +22,8 @@ The open source tools can be used to perform full compilation from OpenCL kernel
   <b>Offline compilation flow for OpenCL kernels into SPIR-V</b>
 <br> <br>
 </p>
+
+When tools are used to target OpenCL drivers they operate on OpenCL flavor of SPIR-V and when tools target Vulkan drivers they operate on Vulkan flavor of SPIR-V instead. Some tools can ingest both SPIR-V dialects. However, it is generally not possible to transform or mix the modules of different SPIR-V flavors. For example, it is generally not possible to use __spirv-link__ to link the modules in both OpenCL and Vulkan formats of SPIR-V.
 
 #### Examples
 
@@ -65,7 +66,7 @@ __(iii)__ Linking multiple modules can be done on LLVM IR level by passing multi
 llvm-link test1.bc test2.bc -o app.bc
 llvm-spirv app.bc -o app.spv
 ```
-Alternatively, __spirv-link__ can be used:
+Alternatively, __spirv-link__ can be used to link SPIR-V modules of the same flavor either OpenCL or Vulkan:
 
 ```
 spirv-link -o app.spv test1.spv test2.spv
