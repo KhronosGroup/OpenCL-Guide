@@ -82,4 +82,4 @@ Compiling OpenCL sources directly to SPIR-V binary format:
 clspv test.cl -o test.spv
 ```
 
-The SPIR-V binary files can be further optimized or linked using __spirv-opt__ and __spirv-link__ respectively before loading into the Vulkan runtime using the `vkCreateShaderModule` API call.
+The SPIR-V binary files can be further optimized or linked using __spirv-opt__ and __spirv-link__ respectively before loading into the Vulkan runtime using `vkCreateShaderModule` from Vulkan API or (if [clvk](https://github.com/kpet/clvk) is used) `clCreateProgramWithIL` from OpenCL API.
