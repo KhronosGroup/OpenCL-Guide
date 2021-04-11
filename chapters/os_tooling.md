@@ -6,7 +6,7 @@ This section describes available open source tools for offline compilation of Op
 
 ## Open Source Tools
 
-* [clang](https://clang.llvm.org/) is a compiler front-end for the C/C++ family of languages including OpenCL C and C++ for OpenCL that can produce executable binaries (e.g. AMDGPU), or portable binaries (e.g. SPIR). It is part of [the LLVM compiler infrastructure project](https://llvm.org/), and there is information regarding [OpenCL kernel language support and standard headers](https://clang.llvm.org/docs/UsersManual.html#opencl-features).
+* [clang](https://clang.llvm.org/) is a compiler front-end for the C/C++ family of languages, including OpenCL C and C++ for OpenCL. It can produce executable binaries (e.g. AMDGPU), or portable binaries (e.g. SPIR). It is part of [the LLVM compiler infrastructure project](https://llvm.org/), and there is information regarding [OpenCL kernel language support and standard headers](https://clang.llvm.org/docs/UsersManual.html#opencl-features).
 * [SPIRV-LLVM Translator](https://github.com/KhronosGroup/SPIRV-LLVM-Translator) provides a library and the __llvm-spirv__ tool for bidirectional translation between LLVM IR and SPIR-V. 
 * [clspv](https://github.com/google/clspv) compiler and [clvk](https://github.com/kpet/clvk) runtime layer enable OpenCL applications to be executed with Vulkan drivers.
 * [SPIR-V Tools](https://github.com/KhronosGroup/SPIRV-Tools) provide a set of utilities to process SPIR-V binaries including __spirv-opt__ optimizer, __spirv-link__ linker, __spirv-dis__/__spirv-as__ (dis-)assembler, and __spirv-val__ validator.
