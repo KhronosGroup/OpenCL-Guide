@@ -2,7 +2,7 @@
 
 OpenCL 3.0 makes the OpenCL ecosystem much more flexible by enabling vendors to focus their resources on functionality that their customers need. This is achieved by slicing all functionality beyond OpenCL 1.2 into optional features that can be queried in the API, with macros to indicate whether optional OpenCL C language features are present. This flexibility sets the stage for new extensions that becomes widely useful to be incrementally integrated into new OpenCL core specifications.
 
-OpenCL 3.0 officially removed the OpenCL C++  language from the specification, and recommends the [C++ for OpenCL](https://github.com/KhronosGroup/Khronosdotorg/blob/master/api/opencl/assets/CXX_for_OpenCL.pdf) front end compiler for those developers that wish to use C++17 for writing kernel programs.
+OpenCL 3.0 officially removed the OpenCL C++  language from the specification, and recommends the [C++ for OpenCL](https://github.com/KhronosGroup/Khronosdotorg/blob/main/api/opencl/assets/CXX_for_OpenCL.pdf) front end compiler for those developers that wish to use C++17 for writing kernel programs.
 
 Developers will find OpenCL 3.0 much easier to use as it uses a unified specification that describes all versions of OpenCL in one place rather than having a separate specification per version, making it much easier for  developers to navigate as well as making it much easier to consistently apply specification fixes and clarifications. The unified OpenCL 3.0 specification also describes the rationale behind the specification's evolution.
 
