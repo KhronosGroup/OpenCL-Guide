@@ -58,7 +58,7 @@ __(ii)__ Converting LLVM IR into SPIR-V.
 llvm-spirv test.bc -o test.spv
 ```
 
-__Note:__ Converting IR produced with optimization levels other than `-O0` is only available as an experimental feature and it is not guaranteed to work. The majority of common functionality is expected to convert even when optimizations are enabled. Developers are encouraged to file a bug report when issues are encountered. When translating modules obtained with optimizations can not be not supported, the stand-alone __spirv-opt__ tool can be used to optimize in SPIR-V format once the conversion is done from LLVM IR produced with optimizations disabled.
+__Note:__ Converting IR produced with optimization levels other than `-O0` is only available as an experimental feature and it is not guaranteed to work. In the majority of cases, the conversion is expected to succeed when optimizations are enabled. Developers are encouraged to file a bug report when issues are encountered. As a workaround when encountering an issue in translating modules obtained with optimizations, generate LLVM IR with optimizations disabled, and then use the stand-alone __spirv-opt__ tool to optimize at the SPIR-V level.
 
 __(iii)__ Linking multiple modules can be done on LLVM IR level by passing multiple `.bc` files to __llvm-link__.
 
