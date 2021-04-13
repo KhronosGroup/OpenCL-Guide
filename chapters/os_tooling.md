@@ -17,7 +17,7 @@ The open source tools can be used to perform full compilation from OpenCL kernel
 
 <p align="center">
 <br>
-<img src="../images/opencl_to_spirv_tooling.jpg">
+<img src="../images/opencl_to_spirv_tooling.jpg" width=500>
 <br> <br>
   <b>Offline compilation flow for OpenCL kernels into SPIR-V</b>
 <br> <br>
