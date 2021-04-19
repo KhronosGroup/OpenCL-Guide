@@ -14,11 +14,11 @@ Device kernels that are written in OpenCL C, which is based on C99, can be inges
 
 The OpenCL specification also enables optional *offline* compilation where the kernel program is pre-compiled into a binary format that a particular driver can ingest. Offline compilation can add significant value to developers by:
 - Speeding OpenCL application execution by eliminating or minimizing kernel code compilation time.
-- Leveraging alternative kernel languages and tools to produce the executable binaries.
+- Leveraging alternative kernel languages and tools to produce executable binaries.
 
 There are two offline compilation approaches:
-- Using caching mechanisms where kernels are compiled online regularly but then obtained by the application using `clGetProgramInfo`. If the same kernels are to be executed later on the same device the earlier compiled binaries are used instead of compiling kernels again.
-- Using offline compilers that are invoked independently and prior to the application execution to obtain the binaries to load and run on the device during the application execution.
+- Kernels that are compiled online by the driver can be retrieved by the application using the `clGetProgramInfo` call. Those cached, device-specific, kernels can then be later reloaded for execution on the same device instead of re-compiling those kernels from the source code.
+- Offline compilers can be invoked independently before the OpenCL application executes to generate binaries to load and run on the device during application execution.
 
 <p align="center">
 <br>
@@ -28,7 +28,7 @@ There are two offline compilation approaches:
 <br> <br>
 </p>
 
-Originally OpenCL implementations mainly used proprietary binary formats and offline compilation was done via caching. This was less portable than using online compilation of OpenCL C. To offset this portability problem, and to enable a richer language and compiler ecosystem, Khronos has defined a cross-vendor, portable intermediate program representation called [SPIR-V](https://www.khronos.org/spir/). An increasing number of OpenCL implementations are supporting ingestion of offline-compiled kernel programs in the SPIR-V format.
+Early OpenCL implementations primarily used proprietary binary formats and caching of driver-compiled binaries to achieve offline compilation. However, the binaries created by the compiler in a specific device driver are not portable to other devices, and so applications using cached binaries lost the portbility to any device that is possible through online compilation of OpenCL C. To solve this portability problem, and to enable a richer language and compiler ecosystem, Khronos has defined a cross-vendor, portable intermediate program representation called [SPIR-V](https://www.khronos.org/spir/). An increasing number of OpenCL implementations are supporting ingestion of offline-compiled kernel programs in the SPIR-V format.
 
 SPIR-V enables independent innovation by the compiler and silicon communities. Compiler front ends that generate SPIR-V kernels that can be ingested and executed by any OpenCL driver that understands the SPIR-V format. For example the  [C++ for OpenCL](cpp_for_opencl.md) open source front-end and compilers for [SYCL](https://www.khronos.org/sycl/) can generate SPIR-V code. Both languages bring C++ functionality to programming OpenCL. While C++ for OpenCL allows using C++ features in the traditional OpenCL kernel code, SYCL provides single-source C++ solution both for the host code and the kernel code. There is also ongoing work on providing SPIR-V support in non C/C++-based languages e.g. [Julia](https://github.com/JuliaGPU/GPUCompiler.jl).
 
