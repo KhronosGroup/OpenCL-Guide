@@ -12,9 +12,9 @@ Device kernels that are written in OpenCL C, which is based on C99, can be inges
 <br> <br>
 </p>
 
-The OpenCL specification also enables optional *offline* compilation where the kernel program is pre-compiled into a binary format that a particular driver can ingest. The offline compilation is very vital as it allows to:
-- Speed up OpenCL application execution by eliminating or minimizing kernel code compilation time.
-- Leverage alternative kernel languages and tools to produce the binary.
+The OpenCL specification also enables optional *offline* compilation where the kernel program is pre-compiled into a binary format that a particular driver can ingest. Offline compilation can add significant value to developers by:
+- Speeding OpenCL application execution by eliminating or minimizing kernel code compilation time.
+- Leveraging alternative kernel languages and tools to produce the executable binaries.
 
 There are two offline compilation approaches:
 - Using caching mechanisms where kernels are compiled online regularly but then obtained by the application using `clGetProgramInfo`. If the same kernels are to be executed later on the same device the earlier compiled binaries are used instead of compiling kernels again.
