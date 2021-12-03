@@ -85,7 +85,7 @@ The SDK can be installed from a package manager like Vcpkg or can be built on-de
 If you want to build an SDK from source, the recommended way is cloning the OpenCL-SDK repo. First you should install the dependencies of the SDK.
 
 ``` bash
-sudo apt install libstb-dev libsfml-dev libglew-dev libtclap-dev ruby doxygen -y
+sudo apt install libstb-dev libsfml-dev libglew-dev libglm-dev libtclap-dev ruby doxygen -y
 git clone https://github.com/KhronosGroup/OpenCL-SDK.git --recursive
 cmake -D CMAKE_INSTALL_PREFIX=./OpenCL-SDK/install -B ./OpenCL-SDK/build -S ./OpenCL-SDK
 cmake --build OpenCL-SDK/build --config Release --target install
@@ -122,7 +122,7 @@ To build SDK you also need some dependencies. Install them by
 
 ``` bash
 sudo apt install libudev-dev libx11-dev libxrandr-dev libgl-dev libxmu-dev libglu1-mesa-dev ruby doxygen -y
-./vcpkg install sfml tclap glm glew
+./vcpkg install sfml glm glew tclap
 ```
 
 _(Note: if you are targeting 64-bit ARM, use `--triplet=arm64-linux` instead. For more information on triplets, refer to [Triplet Files](https://vcpkg.io/en/docs/users/triplets.html) in the Vcpkg docs.)_
@@ -228,7 +228,7 @@ What does the script do?
 - Set the OpenCL version target to control API coverage in header
 - Because CMake cannot handle warning levels portably, set compiler specific flags. Guard it with a generator expression (terse conditionals), so other compilers will not pick up such non-portable flags.
 
-To invoke this script, place it next to our `Main.c` file in a file called `CMakeLists.txt`. Once that's done, cmake may be invoked the following way to generate Ninja makefiles in the advised out-of-source fashion into a subfolder named `build`:
+To invoke this script, place it next to our `Main.c` file in a file called `CMakeLists.txt`. Once that's done, CMake may be invoked the following way to generate makefiles in the advised out-of-source fashion into a subfolder named `build`:
 
 - SDK installed from Vcpkg
 
@@ -275,3 +275,34 @@ To have a decent developer experience in the IDE, we will need to install a few 
 - OpenCL
 
 These extensions will help us author, navigate, build, test, debug code. The OpenCL extension provides syntax highlight for OpenCL device code and provide in-editor documentation for API functions.
+
+### Setting up VS Code workspace
+
+Start VS Code by running `code` from your favorite terminal or by invoking `Visual Studio Code` from the `Show Applications` menu.
+
+Choose `New File...` on the `Get Started` tab and type the contents of `Main.c` [from here](#invoking-the-compiler-manually). Save the file to a folder and open it in the file explorer of VS Code comfirming that you trust the authors of the files in the folder.
+
+Again click `New File...` and type and save the contents of `CMakeLists.txt` [from here](#automating-the-build-using-cmake) into the same folder.
+
+Open Command Palette by pressing `Ctrl-Shift-P` or from menu `View` and search for `CMake: Configure` command by typing starting leeters in the search field. Then invoke the command. You should choose compilation kit for your project, for example, `GCC 9.3.0 x86_64-linux-gnu`.
+
+Last thing to do is providing definitions for CMake. Open menu `File` -> `Preferences` -> `Settings` and go to `Workspace` tab. Search for `CMake` there and under `Extensions` -> `CMake Tools` find `CMake: Configure Settings`. Click on `Edit in settings.json` to open the workspace settings file and put inside the following for
+
+- SDK installed from Vcpkg
+  ``` json
+  {
+    "cmake.configureSettings": {
+        "CMAKE_TOOLCHAIN_FILE": "<VCPKGROOT>/scripts/buildsystems/vcpkg.cmake"
+    }
+  }
+  ```
+- SDK built from source
+  ``` json
+  {
+    "cmake.configureSettings": {
+        "CMAKE_PREFIX_PATH": "<SDKINSTALLROOT>"
+    }
+  }
+  ```
+
+Now you can build the project and run the executable.
