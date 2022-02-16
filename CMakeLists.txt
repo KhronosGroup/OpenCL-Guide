@@ -4,52 +4,14 @@ project(OpenCL-Guide
   LANGUAGES NONE
 )
 
-if(NOT EXISTS "${Awesome_bot_EXECUTABLE}")
-  find_package(Ruby QUIET)
+find_package(Ruby QUIET)
 
-  if(NOT EXISTS "${RUBY_EXECUTABLE}")
-    message(FATAL_ERROR "Ruby not found.")
-  endif()
+if(NOT EXISTS "${RUBY_EXECUTABLE}")
+  message(FATAL_ERROR "Ruby not found.")
+endif()
 
+if(NOT EXISTS "${AWESOME_BOT_EXECUTABLE}")
   get_filename_component(RUBY_EXECUTABLE_DIR "${RUBY_EXECUTABLE}" DIRECTORY)
-
-  if(WIN32)
-    set(GEM_NAMES gem.cmd gem.bat gem.exe)
-  else()
-    set(GEM_NAMES gem)
-  endif()
-
-  find_program(GEM_EXECUTABLE
-    NAMES ${GEM_NAMES}
-    HINTS "${RUBY_EXECUTABLE_DIR}"
-    PATHS ENV MY_RUBY_HOME
-    PATH_SUFFIXES
-      bin
-      Scripts
-    NO_CMAKE_PATH
-    NO_CMAKE_ENVIRONMENT_PATH
-    NO_SYSTEM_ENVIRONMENT_PATH
-    NO_CMAKE_SYSTEM_PATH
-  )
-
-  if(NOT EXISTS "${GEM_EXECUTABLE}")
-    message(FATAL_ERROR "gem not found.")
-  endif()
-
-  execute_process(
-    COMMAND "${GEM_EXECUTABLE}" install awesome_bot
-    RESULT_VARIABLE AWESOME_BOT_RESULT_VAR
-    OUTPUT_VARIABLE AWESOME_BOT_OUTPUT_VAR
-    ERROR_VARIABLE  AWESOME_BOT_ERROR_VAR
-    OUTPUT_STRIP_TRAILING_WHITESPACE
-  )
-
-  if(AWESOME_BOT_RESULT_VAR)
-    message(SEND_ERROR "Failed to install awesome_bot")
-    message(SEND_ERROR "AWESOME_BOT_RESULT_VAR: ${AWESOME_BOT_RESULT_VAR}")
-    message(SEND_ERROR "${AWESOME_BOT_OUTPUT_VAR}")
-    message(FATAL_ERROR "${AWESOME_BOT_ERROR_VAR}")
-  endif()
 
   if(WIN32)
     set(AWESOME_BOT_NAMES awesome_bot.cmd awesome_bot.bat awesome_bot.exe)
@@ -69,6 +31,10 @@ if(NOT EXISTS "${Awesome_bot_EXECUTABLE}")
     NO_SYSTEM_ENVIRONMENT_PATH
     NO_CMAKE_SYSTEM_PATH
   )
+
+  if(NOT EXISTS "${AWESOME_BOT_EXECUTABLE}")
+    message(FATAL_ERROR "awesome_bot executable not found. Please install or provide path by specifying AWESOME_BOT_EXECUTABLE")
+  endif()
 endif()
 
 include(CTest)
