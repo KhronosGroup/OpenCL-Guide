@@ -277,7 +277,7 @@ Once build is complete, we can run it by typing:
 
 ## Building within Visual Studio Code
 
-To have a decent developer experience in the IDE, we will need to install a few extensions. (On how to install extensions, refer to the [corresponding docs](https://code.visualstudio.com/docs/editor/extension-gallery).)
+To have a decent developer experience in the IDE, we will need to install a few extensions. (On how to install extensions, refer to the [corresponding docs](https://code.visualstudio.com/docs/editor/extension-marketplace).)
 
 - C/C++ by Microsoft
 - CMake
