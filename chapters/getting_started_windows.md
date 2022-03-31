@@ -4,13 +4,16 @@ OpenCL is not native to the Windows operating system, and as such isn't supporte
 
 _(NOTE: Nothing prevents from using advanced WinRT capabilities to use the ICD in packaged applications (APPX/MSIX), however such applications will most certainly not be able to load a functioning OpenCL runtime on platforms other than PC and a few IoT devices.)_
 
-In this guide we're going to use the following tools:
+In this guide we're minimally going to use the following tools:
 
-- C/C++ compiler (MSVC & LLVM)
+- The command-line
+- C/C++ compiler
+
+And depending on which ways one extends the bare minimum:
+
 - CMake (Cross-platform Make)
 - Git
 - Vcpkg (Cross-platform pacakge management)
-- The command-line
 - Visual Studio Code
 
 Steps will be provided to obtain a minimal and productive environment.
@@ -77,7 +80,10 @@ To build native OpenCL applications, one will minimally need:
 
 The SDK can be installed from a package manager like Vcpkg or can be built on-demand from their canonical repositories.
 
-#### GitHub
+<details open>
+<summary>
+<b>GitHub</b>
+</summary>
 
 If you want to build an SDK from source, the recommended way is cloning the OpenCL-SDK repo.
 
@@ -86,8 +92,12 @@ git clone https://github.com/KhronosGroup/OpenCL-SDK.git
 cmake -G "Visual Studio 17 2022" -A x64 -T v143 -D CMAKE_INSTALL_PREFIX=./OpenCL-SDK/install -B ./OpenCL-SDK/build -S ./OpenCL-SDK
 cmake --build OpenCL-SDK/build --config Release --target install -- /m /v:minimal
 ```
+</details>
 
-#### Vcpkg
+<details>
+<summary>
+<b>Vcpkg</b>
+</summary>
 
 UX for obtaining dependencies for C/C++ projects has improved dramatically in the past few years. This guide will make use of [Vcpkg](https://vcpkg.io/en/index.html), a community maintained repo of build scripts for a rapidly growing number of open-source libraries.
 
@@ -115,6 +125,8 @@ We can install it by issuing:
 
 _(Note: if you are targeting 64-bit ARM, use `--triplet=arm64-windows` instead. For more information on triplets, refer to [Triplet Files](https://vcpkg.io/en/docs/users/triplets.html) in the Vcpkg docs.)_
 
+</details>
+
 ## Compiling on the command-line
 
 On Windows the default system command interpreter is `cmd.exe`. (This is analogous to `/bin/sh` in Linux.) The default shell however is PowerShell which provides better user-experience overall. (Much like Linux defaults to `/bin/bash`.) PowerShell provides a better CLI experience overall.
@@ -125,7 +137,7 @@ Unlike compilers native to *nix OS flavors, MSVC relies on a few environmental v
 
 #### Developer Command Prompt
 
-To build applications on the command-line on Windows, one needs to open a `Developer Command Prompt for VS 2022`. This can be done in the Start Menu or by invoking `vcvarsall.bat` from the installation folder.
+To build applications on the command-line using `cmd.exe` on Windows, one needs to open a `Developer Command Prompt for VS 2022`. This can be done in the Start Menu or by invoking `vcvarsall.bat` from the installation folder.
 
 ```cmd
 "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Auxiliary\Build\vcvarsall.bat" amd64
@@ -177,13 +189,23 @@ int main()
 
 Then invoke the compiler to build our source file as such:
 
-- SDK installed from Vcpkg
+<details open>
+<summary>
+<b>GitHub</b>
+</summary>
+
+    cl.exe /nologo /TC /W4 /DCL_TARGET_OPENCL_VERSION=100 /I<SDKINSTALLROOT>\include\ Main.c /Fe:HelloOpenCL /link /LIBPATH:<SDKINSTALLROOT>\lib OpenCL.lib
+
+</details>
+
+<details>
+<summary>
+<b>Vcpkg</b>
+</summary>
 
       cl.exe /nologo /TC /W4 /DCL_TARGET_OPENCL_VERSION=100 /I<VCPKGROOT>\installed\x64-windows\include\ Main.c /Fe:HelloOpenCL /link /LIBPATH:<VCPKGROOT>\installed\x64-windows\lib OpenCL.lib
 
-- SDK built from source
-
-      cl.exe /nologo /TC /W4 /DCL_TARGET_OPENCL_VERSION=100 /I<SDKINSTALLROOT>\include\ Main.c /Fe:HelloOpenCL /link /LIBPATH:<SDKINSTALLROOT>\lib OpenCL.lib
+</details>
 
 What do the command-line arguments mean?
 
@@ -226,7 +248,7 @@ target_compile_definitions(${PROJECT_NAME} PRIVATE CL_TARGET_OPENCL_VERSION=100)
 What does the script do?
 - Give a name to the project and tell CMake to only look for a C compiler (default is to search for a C and a C++ compiler)
 - Look for an OpenCL SDK and fail if not found
-  - The `CONFIG` part for the time being is important. For more details, refer to the [CMake Build-System Support](./cmake_build-system_support.md) chapter.
+  - If detection fails, refer to the [CMake Build-System Support](./cmake_build-system_support.md) chapter.
 - Specify our source files and name the executable
 - Specify dependency to the SDK (not just linkage)
 - Set language properties to all source files of our application
@@ -235,13 +257,23 @@ What does the script do?
 
 To invoke this script, place it next to our `Main.c` file in a file called `CMakeLists.txt`. Once that's done, cmake may be invoked the following way to generate Ninja makefiles in the advised out-of-source fashion into a subfolder named `build`:
 
-- SDK installed from Vcpkg
+<details open>
+<summary>
+<b>GitHub</b>
+</summary>
+
+    cmake -A x64 -S . -B .\build -D CMAKE_PREFIX_PATH=<SDKINSTALLROOT>
+
+</details>
+
+<details>
+<summary>
+<b>Vcpkg</b>
+</summary>
 
       cmake -A x64 -S . -B .\build -D CMAKE_TOOLCHAIN_FILE=<VCPKGROOT>\scripts\buildsystems\vcpkg.cmake
 
-- SDK built from source
-
-      cmake -A x64 -S . -B .\build -D CMAKE_PREFIX_PATH=<SDKINSTALLROOT>
+</details>
 
 Which will output something like
 ```
@@ -274,15 +306,3 @@ Once build is complete, we can run it by typing:
 ```
 .\build\Release\HelloOpenCL.exe
 ```
-
-## Building within Visual Studio Code
-
-To have a decent developer experience in the IDE, we will need to install a few extensions. (On how to install extensions, refer to the [corresponding docs](https://code.visualstudio.com/docs/editor/extension-marketplace).)
-
-- C/C++ by Microsoft
-- CMake
-- CMake Tools
-- CMake Test Explorer
-- OpenCL
-
-These extensions will help us author, navigate, build, test, debug code. The OpenCL extension provides syntax highlight for OpenCL device code and provide in-editor documentation for API functions.
