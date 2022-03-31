@@ -5,7 +5,7 @@ OpenCL is included in all the main distributions of Linux. In this guide we choo
 In this guide we're minimally going to use the following tools:
 
 - The command-line
-- C/C++ compiler (gcc & Clang)
+- C/C++ compiler
 
 And depending on which ways one extends the bare minimum:
 
