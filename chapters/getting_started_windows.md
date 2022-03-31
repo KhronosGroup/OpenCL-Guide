@@ -59,7 +59,7 @@ winget install Kitware.CMake
 
 ### Visual Studio Code
 
-While IDEs are highly opinionated, for an IDE with widespared adoption and small footprint, VS Code everything (and more) to get off the ground.
+While IDEs are highly opinionated, for an IDE with widespread adoption and small footprint, VS Code has everything (and more) to get off the ground.
 
 ```
 winget install "Visual Studio Code" --source msstore
