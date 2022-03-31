@@ -25,7 +25,7 @@ _(NOTE: installation commands if not issued from a shell with Administrator priv
 
 ### C/C++ compiler
 
-Open your favorite shell in your faovrite terminal and issue:
+Open your favorite shell in your favorite terminal and issue:
 
 ```
 winget install "Visual Studio Build Tools 2022"
