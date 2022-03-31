@@ -18,7 +18,7 @@ Steps will be provided to obtain a minimal and productive environment.
 
 ## Installation
 
-In this guide we'll be using latest (at the time of writing) Ubuntu 20.04 LTS. Installation for the most part will happen via [apt (Advanced Packaging Tool)](https://en.wikipedia.org/wiki/APT_(software)), the definitive command-line tool for installing software on Debian-base Linux distributives. It is installed with the system automatically.
+In this guide we'll be using latest (at the time of writing) Ubuntu 20.04 LTS. Installation for the most part will happen via [apt (Advanced Packaging Tool)](https://en.wikipedia.org/wiki/APT_(software)), the definitive command-line tool for installing software on Debian-base Linux distribution. It is installed with the system automatically.
 
 _(NOTE: installation commands should be issued with root access, so that use of privilege-escalation by `sudo` is mandatory.)_
 
