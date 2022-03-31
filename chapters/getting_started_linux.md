@@ -1,6 +1,6 @@
 # Getting started with OpenCL on Ubuntu Linux
 
-OpenCL is included in all the main distributions of Linux. In this guide we choose Ubuntu as one of the most widespread variants, but all of the distributives have some sort of centralized system of package maintaining and OpenCL realizations can be installed from there.
+OpenCL is included in all the main distributions of Linux. In this guide we choose Ubuntu as one of the most widespread variants, but all of the distributions have some sort of centralized system of package maintaining and OpenCL realizations can be installed from there.
 
 In this guide we're minimally going to use the following tools:
 
