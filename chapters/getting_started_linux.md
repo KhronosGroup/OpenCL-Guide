@@ -62,7 +62,7 @@ sudo apt install cmake ninja-build -y
 
 ### Visual Studio Code
 
-While IDEs are highly opinionated, for an IDE with widespared adoption and small footprint, VS Code has everything (and more) to get off the ground. It should be installed differently, though. The first way is to use GUI of `Ubuntu Software`, where you can search for `code` and install it. Whether you are a fan of command-line tools, use the second method: open your favorite shell in your favorite terminal and run
+While IDEs are highly opinionated, for an IDE with widespread adoption and small footprint, VS Code has everything (and more) to get off the ground. It can be installed in two ways. The first way is to use the `Ubuntu Software` GUI, where you can search for `code` and install it in one click. If you are a fan of command-line tools, use the second method: open your favorite shell in your favorite terminal and run
 
 ``` bash
 sudo snap install --classic code
