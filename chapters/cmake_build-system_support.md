@@ -1,6 +1,6 @@
 # CMake Build System Support
 
-The Khronos OpenCL ecosystem currently dominantly uses CMake as tool of choice for build automation and unit testing. OpenCL has long long had facilities for building OpenCL applications long before the the Khronos-hosted OpenCL-SDK manifested.
+The Khronos OpenCL ecosystem currently dominantly uses CMake as tool of choice for build automation and unit testing. OpenCL has had facilities for building OpenCL applications long before the the Khronos-hosted OpenCL-SDK manifested.
 
 ## Dependency detection
 
