@@ -19,7 +19,9 @@ This guide is written to help developers get up and running quickly with the Khr
 - [Additional Resources](./chapters/additional_resources.md)
 
 ## The OpenCL SDK
-Content in preparation
+- [Getting Started on Windows](./chapters/getting_started_windows.md)
+- [Getting Started on Linux](./chapters/getting_started_linux.md)
+- [CMake Build System Support](./chapters/cmake_build-system_support.md)
 
 ## Using OpenCL
 Content in preparation

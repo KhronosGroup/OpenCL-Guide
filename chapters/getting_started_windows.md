@@ -20,7 +20,7 @@ Steps will be provided to obtain a minimal and productive environment.
 
 ## Installation
 
-In this guide we'll be using latest (at the time of writing) Windows 10. Installation for the most part will happen via [winget](https://docs.microsoft.com/en-us/windows/package-manager/winget/), the 1st party command-line tool for installing software on Windows. If for whatever reason you do not have the `winget` client on your PATH, it is bundled with the [App Installer](https://www.microsoft.com/en-us/p/app-installer/9nblggh4nns1) package in the Microsoft Store. Updating this component should also install the command-line tool.
+In this guide we'll be using latest (at the time of writing) Windows 10. Installation for the most part will happen via [winget](https://docs.microsoft.com/en-us/windows/package-manager/winget/), the 1st party command-line tool for installing software on Windows. If for whatever reason you do not have the `winget` client on your PATH, it is bundled with the [App Installer](https://apps.microsoft.com/store/detail/9NBLGGH4NNS1?hl=en-us&gl=US) package in the Microsoft Store. Updating this component should also install the command-line tool.
 
 _(NOTE: installation commands if not issued from a shell with Administrator privileges, UAC prompts will pop up. If you are in an automated scenario where that's an issue, make sure to work in such a shell.)_
 
