@@ -6,7 +6,7 @@ This section describes available open source tools for offline compilation of Op
 
 ## Open Source Tools
 
-* [clang](https://clang.llvm.org/) is a compiler front-end for the C/C++ family of languages, including OpenCL C and C++ for OpenCL. It can produce executable binaries (e.g. AMDGPU), or portable binaries (e.g. SPIR). It is part of [the LLVM compiler infrastructure project](https://llvm.org/), and there is information regarding [OpenCL kernel language support and standard headers](https://clang.llvm.org/docs/UsersManual.html#opencl-features).
+* [clang](https://clang.llvm.org/) is a compiler front-end for the C/C++ family of languages, including OpenCL C and C++ for OpenCL. It can produce executable binaries (e.g. AMDGPU), or portable binaries (e.g. SPIR-V). It is part of [the LLVM compiler infrastructure project](https://llvm.org/), and there is information regarding [OpenCL kernel language support and standard headers](https://clang.llvm.org/docs/UsersManual.html#opencl-features).
 * [SPIRV-LLVM Translator](https://github.com/KhronosGroup/SPIRV-LLVM-Translator) provides a library and the __llvm-spirv__ tool for bidirectional translation between LLVM IR and SPIR-V. 
 * [clspv](https://github.com/google/clspv) compiler and [clvk](https://github.com/kpet/clvk) runtime layer enable OpenCL applications to be executed with Vulkan drivers.
 * [SPIR-V Tools](https://github.com/KhronosGroup/SPIRV-Tools) provide a set of utilities to process SPIR-V binaries including __spirv-opt__ optimizer, __spirv-link__ linker, __spirv-dis__/__spirv-as__ (dis-)assembler, and __spirv-val__ validator.
@@ -31,26 +31,30 @@ If you want to try the above compilation flow for yourself, after installing the
 
 ##### Compile for OpenCL runtime
 
-__(i)__ Compiling OpenCL C/C++ for OpenCL file into SPIR flavor LLVM IR (for 32 bit targets) formats:
+__(i)__ Compiling OpenCL C/C++ for OpenCL file into SPIR-V flavor LLVM IR (for 32 bit targets) formats:
 
 ```
-clang -c -target spir -O0 -emit-llvm -o test.bc test.cl
+clang -c -target spirv32 -O0 -emit-llvm -o test.bc test.cl
 ```
 Using `-cl-std` changes the language version compiled for.
 
 To compile C++ for OpenCL source pass `-cl-std=CLC++` or use the file extension `.clcpp`.
 
 ```
-clang -cl-std=CLC++ -c -target spir -O0 -emit-llvm -o test.bc test.cl
-clang -c -target spir -O0 -emit-llvm -o test.bc test.clcpp
+clang -cl-std=CLC++ -c -target spirv32 -O0 -emit-llvm -o test.bc test.cl
+clang -c -target spirv32 -O0 -emit-llvm -o test.bc test.clcpp
 ```
 If debugging support is needed then the `-g` flag can be used in the clang invocation:
 
 ```
-clang -c test.cl -target spir -o test.bc -g
+clang -c test.cl -target spirv32 -o test.bc -g
 ```
 
-__Note:__ In clang releases up to 12.0, calling most builtin functions requires the extra flags `-Xclang -finclude-default-header` to be passed to clang. Refer to the release documentation for more details.
+__Note:__ In clang releases:
+- 12.x or earlier, calling most builtin functions requires the extra flags `-Xclang -finclude-default-header` to be passed to clang.
+- 13.x or earlier, target  ̀spirv32 ̀ must be replaced by  ̀̀spir ̀.
+
+Refer to the release documentation for more details.
 
 __(ii)__ Converting LLVM IR into SPIR-V. 
 
