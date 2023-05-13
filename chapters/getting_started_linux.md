@@ -175,7 +175,7 @@ Then invoke the compiler to build our source file as such:
 <b>APT</b>
 </summary>
 
-    gcc -Wall -Wextra -D CL_TARGET_OPENCL_VERSION=100 Main.c -o HelloOpenCL -lOpenCL
+    gcc -Wall -Wextra -D CL_TARGET_OPENCL_VERSION=100 Main.c -o HelloOpenCL -l OpenCL
 
 What do the command-line arguments mean?
 
