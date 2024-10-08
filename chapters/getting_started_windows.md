@@ -13,7 +13,7 @@ And depending on which ways one extends the bare minimum:
 
 - CMake (Cross-platform Make)
 - Git
-- Vcpkg (Cross-platform pacakge management)
+- Vcpkg (Cross-platform package management)
 - Visual Studio Code
 
 Steps will be provided to obtain a minimal and productive environment.
