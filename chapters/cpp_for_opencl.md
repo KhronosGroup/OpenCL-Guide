@@ -104,7 +104,7 @@ The bugs and implementation of new features in clang can be tracked via the [Ope
 
 ### Online compilation
 
-Kernels written in C++ for OpenCL can be compiled online on devices that support the [cl_ext_cxx_for_opencl](https://www.khronos.org/registry/OpenCL/extensions/ext/cl_ext_cxx_for_opencl.html) extension.
+Kernels written in C++ for OpenCL can be compiled online on devices that support the [cl_ext_cxx_for_opencl](https://registry.khronos.org/OpenCL/extensions/ext/cl_ext_cxx_for_opencl.html) extension.
 
 ## Libraries
 

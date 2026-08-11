@@ -16,5 +16,5 @@ SYCL and OpenVX implementations can be accelerated over lower level Khronos APIs
 
 [Vulkan](https://www.vulkan.org/) is a widely used new generation GPU API that can accelerate compute operations on any compatible GPU using compute shaders (shaders are the graphics equivalent of OpenCL's kernels), as well as rendering 3D graphics. When comparing OpenCL and GPU APIs such as Vulkan, some developers that are just interested in compute find that OpenCL provides a more straightforward programming model, a lighter weight runtime, more language flexibility compared to graphics shading languages - for example OpenCL C has pointers - and more rigorously defined numerical precision for math operations that can be critical for many applications. And of course, Vulkan can only be used to program GPUs, whereas OpenCL can be used to program heterogeneous accelerators.
 
-Vulkan and many implementations of OpenCL use Khronos’ [SPIR-V](https://www.khronos.org/spir/) standard as a programming language intermediate representation that enables significant language compiler tooling flexibility.
+Vulkan and many implementations of OpenCL use Khronos’ [SPIR-V](https://www.khronos.org/spirv/) standard as a programming language intermediate representation that enables significant language compiler tooling flexibility.
 

@@ -32,7 +32,7 @@ and executed across the available parallel processors is called *OpenCL C*.
 OpenCL C is based on C99 and is defined as part of the OpenCL specification.
 Kernels written in other programming languages may be executed using OpenCL by
 compiling to an intermediate program representation, such as
-[SPIR-V](https://www.khronos.org/spir/).
+[SPIR-V](https://www.khronos.org/spirv/).
 
 OpenCL is a low-level programming framework so the programmer has direct,
 explicit control over where and when kernels are run, how the memory they use is

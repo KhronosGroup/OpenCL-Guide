@@ -4,7 +4,7 @@ There are many additional resources to help you find our more about OpenCL and t
 
 The remaining sections of this User Guide will show you how to install the Khronos OpenCL SDK on your machine and start programming using the provided samples as a starting point.
 
-The definitive versions of all OpenCL core specifications and extensions are on the [OpenCL Registry](https://www.khronos.org/registry/OpenCL/).
+The definitive versions of all OpenCL core specifications and extensions are on the [OpenCL Registry](https://registry.khronos.org/OpenCL/).
 
 Khronos-supplied OpenCL resources and other key tools are curated by the OpenCL Working Group on the [OpenCL Resource Guide](https://www.khronos.org/opencl/resources).
 
