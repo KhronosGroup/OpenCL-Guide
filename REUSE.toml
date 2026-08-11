@@ -1,0 +1,9 @@
+version = 1
+SPDX-PackageName = "OpenCL Guide"
+SPDX-PackageDownloadLocation = "https://github.com/KhronosGroup/OpenCL-Guide"
+
+[[annotations]]
+path = "**"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2020 The Khronos Group, Inc"
+SPDX-License-Identifier = "CC-BY-4.0"
