@@ -150,9 +150,9 @@ _(Note: for all combinations of available host-target toolset variables, consult
 Inheriting environments set up by batch scripts is not trivial, hence VS provides a PowerShell module doing the same thing. The module is inside an assembly shipping with VS. To have the utility available in all shells, invoke the following from PowerShell:
 
 ```powershell
-if (-not (Test-Path ~\Documents\PowerShell)) { New-Item -Type Directory ~\Documents\PowerShell }
+if (-not (Test-Path ~\Documents\WindowsPowerShell)) { New-Item -Type Directory ~\Documents\WindowsPowerShell }
 'Import-Module "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\Common7\Tools\Microsoft.VisualStudio.DevShell.dll"' >> $PROFILE
-function devshell { Enter-VsDevShell -InstallPath "C:\Kellekek\Microsoft\VisualStudio\2019\BuildTools" -SkipAutomaticLocation -DevCmdArguments "-arch=x64 -no_logo" }
+function devshell { Enter-VsDevShell -InstallPath "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools" -SkipAutomaticLocation -DevCmdArguments "-arch=x64 -no_logo" }
 
 ```
 
