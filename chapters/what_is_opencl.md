@@ -2,7 +2,7 @@
 
 OpenCL (Open Computing Language) is an open, royalty-free standard for cross-platform, parallel programming of diverse accelerators found in supercomputers, cloud servers, personal computers, mobile devices and embedded platforms. OpenCL was created and is managed by the Khronos Group. OpenCL makes applications run faster and smoother by enabling them to use the parallel processing power in a system or device.
 
-OpenCL is widely used throughout the industry. Many silicon vendors ship OpenCL with their processors, including GPUs, DSPs and FPGAs. The OpenCL API specification enables each chip to have to have its OpenCL drivers tuned to its specific architecture. Having the same, standardized API available on many systems enable developers to widely deploy their applications to reach more customers while minimizing porting and support costs. 
+OpenCL is widely used throughout the industry. Many silicon vendors ship OpenCL with their processors, including GPUs, DSPs and FPGAs. The OpenCL API specification enables each chip to have its OpenCL drivers tuned to its specific architecture. Having the same, standardized API available on many systems enable developers to widely deploy their applications to reach more customers while minimizing porting and support costs. 
 
 To say they support conformant OpenCL, hardware vendors must become OpenCL *Adopters* and submit their conformance test results for review by the OpenCL Working Group at Khronos. You can  view a list of hardware vendors with Conformant OpenCL Implementations on [Khronos' OpenCL Adopter Page](https://www.khronos.org/conformance/adopters/conformant-products/opencl).
 
