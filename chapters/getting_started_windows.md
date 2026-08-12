@@ -109,7 +109,7 @@ cd vcpkg
 .\bootstrap-vcpkg.bat
 ```
 
-This should build the Vcpkg command-line utility that will take care of the all installations. The utility let's us discover the OpenCL SDK in its repository (beside other packages mentioning OpenCL).
+This should build the Vcpkg command-line utility that will take care of the all installations. The utility lets us discover the OpenCL SDK in its repository (beside other packages mentioning OpenCL).
 
 ```
 .\vcpkg.exe search opencl
