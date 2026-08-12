@@ -46,7 +46,7 @@ In automated scenarios with no GUI available, please consult the [VS docs](https
 
 ### Git
 
-You most likely already have Git installed. If not, we'll install it, because this is what Vcpkg uses to keep it's repository up-to-date. Open your favorite shell in your faovrite terminal and issue:
+You most likely already have Git installed. If not, we'll install it, because this is what Vcpkg uses to keep its repository up-to-date. Open your favorite shell in your favorite terminal and issue:
 
 ```
 winget install Git.Git
@@ -54,7 +54,7 @@ winget install Git.Git
 
 ### CMake
 
-If you do not have CMake installed yet, we'll install it, as it's the primary supported build system, as it will make our builds much simpler. Open your favorite shell in your faovrite terminal and issue:
+If you do not have CMake installed yet, we'll install it, as it's the primary supported build system, as it will make our builds much simpler. Open your favorite shell in your favorite terminal and issue:
 
 ```
 winget install Kitware.CMake
@@ -109,7 +109,7 @@ cd vcpkg
 .\bootstrap-vcpkg.bat
 ```
 
-This should build the Vcpkg command-line utility that will take care of the all installations. The utility let's us discover the OpenCL SDK in its repository (beside other packages mentioning OpenCL).
+This should build the Vcpkg command-line utility that will take care of the all installations. The utility lets us discover the OpenCL SDK in its repository (beside other packages mentioning OpenCL).
 
 ```
 .\vcpkg.exe search opencl
