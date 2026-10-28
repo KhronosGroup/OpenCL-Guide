@@ -139,6 +139,19 @@ sudo apt install libudev-dev libx11-dev libxrandr-dev libgl-dev libxmu-dev libgl
 _(Note: if you are targeting 64-bit ARM, use `--triplet=arm64-linux` instead. For more information on triplets, refer to [Triplet Files](https://vcpkg.io/en/docs/users/triplets.html) in the Vcpkg docs.)_
 </details>
 
+### OpenCL runtime
+
+Running OpenCL applications also requires an OpenCL implementation; the headers
+and ICD loader alone are not enough. [PoCL](https://portablecl.org/) can execute
+OpenCL kernels on the CPU, making it useful for development and testing without
+a GPU.
+
+On Ubuntu, with the Universe repository enabled, install the PoCL ICD:
+
+``` bash
+sudo apt install pocl-opencl-icd -y
+```
+
 ## Compiling on the command-line
 
 ### Invoking the compiler manually
